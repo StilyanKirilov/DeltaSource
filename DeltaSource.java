@@ -1,19 +1,19 @@
 import java.util.ArrayDeque;
 
 public class DeltaSource {
-
-    private static final ArrayDeque<Character> stack = new ArrayDeque<>();
-
     public static void main(String[] args) {
-        String expression4 = "ACABbBbaca";
-        String expression5 = "AabB";
-        String expression6 = "BCAcaB";
-        System.out.println(isValidExpression(expression4));
-        System.out.println(isValidExpression(expression5));
-        System.out.println(isValidExpression(expression6));
+        String expression1 = "ACABbBbaca";
+        String expression2 = "AabB";
+        String expression3 = "BCAcaB";
+        System.out.println(isValidExpression(expression1));
+        System.out.println(isValidExpression(expression2));
+        System.out.println(isValidExpression(expression3));
     }
 
     private static boolean isValidExpression(String expression) {
+        
+        ArrayDeque<Character> stack = new ArrayDeque<>();
+        
         if (expression == null || expression.length() < 2) {
             // Checking if the given string is not null or less than 2 characters
             return false;
@@ -33,7 +33,7 @@ public class DeltaSource {
                     stack.pop();
                 } else {
                     /* if the letter is lowercase and its not our last Uppercase
-                       letter than the expression is not valid and we return false */
+                       letter then the expression is not valid and we return false */
                     return false;
                 }
             } else {
